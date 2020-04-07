@@ -1,54 +1,47 @@
-# Project 3: Collaboration and Competition
+# Udacity DRLND Project 3: Collaboration and Competition
+For this project, we will work with the Tennis environment.  
 
-### Introduction
+![Tennis](TrainedAgent.gif)  
 
-For this project, you will work with the ![Tennis](TrainedAgent.gif) environment.
+## Environment details
+### What is the environment like?
+In *Tennis*, two agents control rackets to bounce a ball over the net. If an agent hits the ball over the net, it receives a reward of 0.1. Letting the ball touch the ground ot hitting the ball out of the court gets the agent a reward of -0.01. The goal of the two agents is to keep the ball in play. The gif above shows two agents trained used this notebook.
 
-In this environment, two agents control rackets to bounce a ball over a net. If an agent hits the ball over the net, it receives a reward of +0.1.  If an agent lets a ball hit the ground or hits the ball out of bounds, it receives a reward of -0.01.  Thus, the goal of each agent is to keep the ball in play.
+### The state and action spaces
+The observation state for each agent consists of 24 continuous variables which represent several parameters relating to the position and velocity of the ball and racket. Each agent receives its own specific observation. The agents can perform two continuous actions: moving toward or away from the net and jumping. Both actions are bound within the interval [-1, 1]. 
 
-The observation space consists of 8 variables corresponding to the position and velocity of the ball and racket. Each agent receives its own, local observation.  Two continuous actions are available, corresponding to movement toward (or away from) the net, and jumping. 
+### Task structure and solution
+The task is episodic, with episodes beginning when the ball is dropped into the playing field and ending when it hits the ground or gets knocked out of bounds. The task is considered solved when an average score of +0.5 over 100 consecutive episodes is achieved. More concretely, at the end of each episode each agent receives a reward, meaning we likely have 2 different scores. You sould take the maximum of those 2 rewards to get the task score for that episode and it is this value which you average over 100 episodes to check if the task has been solved.
 
-The task is episodic, and in order to solve the environment, your agents must get an average score of +0.5 (over 100 consecutive episodes, after taking the maximum over both agents). Specifically,
+## Dependencies
 
-- After each episode, we add up the rewards that each agent received (without discounting), to get a score for each agent. This yields 2 (potentially different) scores. We then take the maximum of these 2 scores.
-- This yields a single **score** for each episode.
+**First**, reproduce my environment by following the instructions [here](https://github.com/udacity/deep-reinforcement-learning#dependencies).  
+**Then**, clone this repository.  
 
-The environment is considered solved, when the average (over 100 episodes) of those **scores** is at least +0.5.
-
-### Getting Started
-
-1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
-    - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Linux.zip)
-    - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis.app.zip)
-    - Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Windows_x86.zip)
-    - Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Windows_x86_64.zip)
+### Project environment
+**First** download the Unity environment from whichever link below matches your operating system:
+- [Linux](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Linux.zip)
+- [Mac OSC](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis.app.zip)
+- [Windows (32-bit)](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Windows_x86.zip)
+- [Windows (64-bit)](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Windows_x86_64.zip)  
     
-    (_For Windows users_) Check out [this link](https://support.microsoft.com/en-us/help/827218/how-to-determine-whether-a-computer-is-running-a-32-bit-version-or-64) if you need help with determining if your computer is running a 32-bit version or 64-bit version of the Windows operating system.
+**Then**, unzip the downloaded file into the same directory as the cloned repo. 
+    
+### Additional installations
+- PyTorch 1.4.0
+- Numpy 1.18.1
+- Matplotlib 3.1.3
 
-    (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Linux_NoVis.zip) to obtain the "headless" version of the environment.  You will **not** be able to watch the agent without enabling a virtual screen, but you will be able to train the agent.  (_To watch the agent, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
+## How to use
+This repo has a [Training Notebook](https://github.com/andrefmsmith/drlnd_CollabCompetSubmission/blob/master/Tennis_TrainCode.ipynb) with all the code to train the agent, a [Report](https://github.com/andrefmsmith/drlnd_CollabCompetSubmission/blob/master/Report.ipynb) explaining the approach used and [Checkpoints](https://github.com/andrefmsmith/drlnd_CollabCompetSubmission/tree/master/Model%20Checkpoints) to load a trained agent.  
 
-2. Place the file in the DRLND GitHub repository, in the `p3_collab-compet/` folder, and unzip (or decompress) the file. 
-
-### Instructions
-
-Follow the instructions in `Tennis.ipynb` to get started with training your own agent!  
-
-### (Optional) Challenge: Crawler Environment
-
-After you have successfully completed the project, you might like to solve the more difficult **Soccer** environment.
-
-![Soccer][image2]
-
-In this environment, the goal is to train a team of agents to play soccer.  
-
-You can read more about this environment in the ML-Agents GitHub [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#soccer-twos).  To solve this harder task, you'll need to download a new Unity environment.  (**Note**: Udacity students should not submit a project with this new environment.)
-
-You need only select the environment that matches your operating system:
-- Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer_Linux.zip)
-- Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer.app.zip)
-- Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer_Windows_x86.zip)
-- Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer_Windows_x86_64.zip)
-
-Then, place the file in the `p3_collab-compet/` folder in the DRLND GitHub repository, and unzip (or decompress) the file.  Next, open `Soccer.ipynb` and follow the instructions to learn how to use the Python API to control the agent.
-
-(_For AWS_) If you'd like to train the agents on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer_Linux_NoVis.zip) to obtain the "headless" version of the environment.  You will **not** be able to watch the agents without enabling a virtual screen, but you will be able to train the agents.  (_To watch the agents, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
+After solving the dependencies and setting up the project, open the [Training Notebook](https://github.com/andrefmsmith/drlnd_CollabCompetSubmission/blob/master/Tennis_TrainCode.ipynb) and:
+- Run 'Imports' cell;
+- Run 'Unity environment & info' to instantiate the environment and retrieve necessary variables;
+- Run/edit 'Hyperparameters' cell. Defaults work fine;
+- Run every cell under 'DDPG agents' to define networks, their architectures and methods, as well as the Replay Buffer;
+- Run cells 'Instantiate agent' and 'Define training function'
+- Finally, run cell 'Train & save checkpoint to *path*', replacing the default value of path with your chosen filename prefix for the model checkpoints.
+- Watch a trained agent:
+    - If you trained a new agent using the notebook, skip to cell 'Watch the agent'
+    - Alternatively, run the cell 'Load model' setting the variable appropriately to load parameters for either mine or your pre-trained model, then run cell 'Watch the agent'.
