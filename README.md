@@ -1,9 +1,10 @@
 # Udacity DRLND Project 3: Collaboration and Competition
-For this project, we will work with the Tennis environment. ![Tennis](TrainedAgent.gif)  
+For this project, we will work with the Tennis environment. 
+![Tennis](TrainedAgent.gif)  
 
 ## Environment details
 ### What is the environment like?
-In *Tennis*, two agents control rackets to bounce a ball over the net. If an agent hits the ball over the net, it receives a reward of 0.1. Letting the ball touch the ground ot hitting the ball out of the court gets the agent a reward of -0.01. The goal of the two agents is to keep the ball in play.
+In *Tennis*, two agents control rackets to bounce a ball over the net. If an agent hits the ball over the net, it receives a reward of 0.1. Letting the ball touch the ground ot hitting the ball out of the court gets the agent a reward of -0.01. The goal of the two agents is to keep the ball in play. The gif above shows two agents trained used this notebook.
 
 ### The state and action spaces
 The observation state for each agent consists of 24 continuous variables which represent several parameters relating to the position and velocity of the ball and racket. Each agent receives its own specific observation. The agents can perform two continuous actions: moving toward or away from the net and jumping. Both actions are bound within the interval [-1, 1]. 
