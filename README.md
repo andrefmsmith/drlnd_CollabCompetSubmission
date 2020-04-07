@@ -1,5 +1,6 @@
 # Udacity DRLND Project 3: Collaboration and Competition
-For this project, we will work with the Tennis environment. 
+For this project, we will work with the Tennis environment.  
+
 ![Tennis](TrainedAgent.gif)  
 
 ## Environment details
